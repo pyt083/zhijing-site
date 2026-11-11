@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>智影 V3.0｜一站式 AI 视频与内容生成平台</title>
+<meta name="description" content="智影基于满血版 Seedance 2.5，把一句想法变成可投放的营销视频。覆盖视频生成、图片生成、Agent 模式、无限画布、数字人、场景卡片、爆款工厂、视频超分等 27 项创作能力，支持企业主账号与开放平台 API。" />
+<meta property="og:title" content="智影 V3.0｜一站式 AI 视频与内容生成平台" />
+<meta property="og:description" content="一句话出片，全流程可控。从脚本分镜到 4K 成片，一条链路跑完。" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='9' fill='%23070C0E'/%3E%3Cpath d='M9 21.5 16 8l7 13.5' stroke='%2335E3B4' stroke-width='2.4' fill='none' stroke-linejoin='round'/%3E%3Cpath d='M12.5 18h7' stroke='%23EDF6F4' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="assets/css/main.css" />
+</head>
+<body>
+
+<div class="grain" aria-hidden="true"></div>
+
+<!-- ================= 顶部公告 ================= -->
+<div class="announce">
+  <div class="wrap announce__inner">
+    <span class="dot"></span>
+    <p><b>智影 V3.0 已上线</b> · 满血版 Seedance 2.5，新增豆包语音、音视频格式转换、抽帧裂变</p>
+    <a href="#capability" class="announce__link">看新增能力 <span aria-hidden="true">→</span></a>
+  </div>
+</div>
+
+<!-- ================= 导航 ================= -->
+<header class="nav" id="nav">
+  <div class="wrap nav__inner">
+    <a class="brand" href="#top" aria-label="智影首页">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+        <path d="M6 23 16 5l10 18" fill="none" stroke="url(#g1)" stroke-width="2.6" stroke-linejoin="round"/>
+        <path d="M10.5 18.5h11" stroke="#EDF6F4" stroke-width="2.6" stroke-linecap="round"/>
+        <defs><linearGradient id="g1" x1="6" y1="5" x2="26" y2="23">
+          <stop offset="0" stop-color="#35E3B4"/><stop offset="1" stop-color="#6FD7FF"/>
+        </linearGradient></defs>
+      </svg>
+      <span class="brand__name">智影<em>Insai InVision</em></span>
+    </a>
+
+    <nav class="nav__links" aria-label="主导航">
+      <a href="#value">核心能力</a>
+      <a href="#capability">功能全景</a>
+      <a href="#flow">创作流程</a>
+      <a href="#scenes">场景方案</a>
+      <a href="#enterprise">企业版</a>
+      <a href="#faq">常见问题</a>
+    </nav>
+
+    <div class="nav__cta">
+      <a class="btn btn--ghost btn--sm" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">登录</a>
+      <a class="btn btn--primary btn--sm" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">免费试用</a>
+      <button class="nav__burger" id="burger" aria-label="打开菜单" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="navMobile">
+    <a href="#value">核心能力</a>
+    <a href="#capability">功能全景</a>
+    <a href="#flow">创作流程</a>
+    <a href="#scenes">场景方案</a>
+    <a href="#enterprise">企业版</a>
+    <a href="#faq">常见问题</a>
+    <a class="btn btn--primary" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">免费试用</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= Hero ================= -->
+<section class="hero">
+  <div class="hero__aura" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow reveal"><span class="eyebrow__dot"></span>AI 创意生产平台 · 智影 V3.0</p>
+      <h1 class="reveal">把一句想法，<br/>变成<em>能投放</em>的营销视频。</h1>
+      <p class="hero__lead reveal">智影把脚本、分镜、画面、配音、剪辑收进同一条链路。你只要说清产品与人群，剩下的交给 Agent——也可以随时接管，逐镜改到满意。</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">
+          免费开始创作 <span class="arrow" aria-hidden="true">↗</span>
+        </a>
+        <a class="btn btn--outline btn--lg" href="#capability">看完整功能清单</a>
+      </div>
+      <ul class="hero__meta reveal">
+        <li>无需剪辑经验</li>
+        <li>最长 5 分钟长视频</li>
+        <li>视频生成低至 ¥0.2 / 秒</li>
+      </ul>
+    </div>
+
+    <!-- 创作台界面示意 -->
+    <div class="stage reveal" aria-hidden="true">
+      <div class="stage__bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="stage__title">智影 · 创作台</span>
+        <span class="stage__tag">Seedance 2.5</span>
+      </div>
+      <div class="stage__body">
+        <div class="chat">
+          <div class="chat__msg chat__msg--user">
+            <p>15 秒竖版，产品是通勤双肩包，人群是坐地铁上班的上班族，讲「东西好找」。</p>
+          </div>
+          <div class="chat__msg chat__msg--ai">
+            <p><span class="ai-label">Agent</span>开场聚焦「刷卡时翻包找卡」，还是「笔记本与随身物品分开」？</p>
+            <div class="chat__chips"><span>找卡更快</span><span>分区收纳</span><span>都讲</span></div>
+          </div>
+          <div class="chat__msg chat__msg--user chat__msg--sm"><p>讲早高峰找卡，节奏快一点。</p></div>
+          <div class="chat__typing"><i></i><i></i><i></i> 生成分镜与口播稿…</div>
+        </div>
+
+        <div class="preview">
+          <div class="preview__frame">
+            <img src="assets/img/scene-commuter.webp" alt="" loading="eager" />
+            <span class="preview__play">▶</span>
+            <span class="preview__badge">4K · 已超分</span>
+            <span class="preview__time">00:15</span>
+          </div>
+          <div class="preview__strip">
+            <figure><img src="assets/img/hero-product.webp" alt="" loading="lazy" /><figcaption>特写 · 质感</figcaption></figure>
+            <figure><img src="assets/img/scene-serum.webp" alt="" loading="lazy" /><figcaption>卖点 · 演示</figcaption></figure>
+            <figure><img src="assets/img/scene-avatar.webp" alt="" loading="lazy" /><figcaption>口播 · 收尾</figcaption></figure>
+          </div>
+          <div class="preview__progress"><span></span></div>
+        </div>
+      </div>
+      <div class="float float--a">抽帧裂变 · 12 条变体</div>
+      <div class="float float--b">定时运行 · 明早 8:00</div>
+    </div>
+  </div>
+
+  <div class="wrap hero__logos">
+    <p>同一套能力，已经在这些团队的内容流水线里跑</p>
+    <ul>
+      <li>品牌电商</li><li>效果投放</li><li>本地生活</li><li>跨境出海</li><li>MCN 机构</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= 三条价值 ================= -->
+<section class="section" id="value">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow reveal">为什么是智影</p>
+      <h2 class="reveal">创意先落地，<br class="only-pc"/>再谈产量。</h2>
+      <p class="sec-head__lead reveal">大多数工具只解决「画一张图」。智影解决的是「这条素材能不能投、能不能批量测」。</p>
+    </header>
+
+    <div class="value-grid">
+      <article class="vcard reveal">
+        <span class="vcard__no">01</span>
+        <h3>模糊需求，也能开工</h3>
+        <p>场景卡片把「前贴、卖点、特写、图生视频」拆成结构化提问；提示词导师再把口语描述扩写成可复用的分镜指令。你不必先学会怎么写提示词。</p>
+        <ul class="vcard__list">
+          <li>场景卡片 · 开箱即用的四类模板</li>
+          <li>提示词导师 · 一句话扩写成完整分镜</li>
+        </ul>
+      </article>
+      <article class="vcard reveal">
+        <span class="vcard__no">02</span>
+        <h3>你做决策，Agent 干活</h3>
+        <p>Agent 模式会先追问缺失的信息——人群、卖点、投放渠道——再自己往下推进到画面、配音与剪辑。每一步都能改，改了它继续做。</p>
+        <ul class="vcard__list">
+          <li>Agent 模式 · 会追问、会规划、会执行</li>
+          <li>无限画布 · 素材、镜头、版本铺在一张图上</li>
+        </ul>
+      </article>
+      <article class="vcard reveal">
+        <span class="vcard__no">03</span>
+        <h3>一条素材，裂变一组</h3>
+        <p>抽帧裂变、爆款工厂与定时运行让一次创作产出多版本；按渠道转换尺寸与编码，第二天早上素材已经躺在任务列表里。</p>
+        <ul class="vcard__list">
+          <li>抽帧裂变 · 关键帧再生变体</li>
+          <li>定时运行 · 7×24 无人值守排队</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 两种协作方式 ================= -->
+<section class="section section--tight">
+  <div class="wrap">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal">两种节奏</p>
+      <h2 class="reveal">先要一条能看的片，<br class="only-pc"/>还是一条对得上的片？</h2>
+      <p class="sec-head__lead reveal">同样的底座，两种协作深度。可以先用极速成片验证方向，再把通过的版本放回 Agent 深化。</p>
+    </header>
+
+    <div class="modes">
+      <div class="modes__tabs reveal" role="tablist">
+        <button class="modes__tab is-active" role="tab" aria-selected="true" data-mode="fast">极速成片</button>
+        <button class="modes__tab" role="tab" aria-selected="false" data-mode="deep">深度共创</button>
+      </div>
+
+      <div class="mode-card is-active" data-panel="fast">
+        <div class="mode-card__media">
+          <img src="assets/img/scene-commuter.webp" alt="极速成片示例画面" loading="lazy" />
+          <div class="mode-card__chip">平均 6 分钟出首版</div>
+        </div>
+        <div class="mode-card__body">
+          <h3>极速成片</h3>
+          <p>给出产品图或链接，说清人群与卖点。智影把创意、脚本、画面、配音一次做完，先给你一条完整片。</p>
+          <ol class="steps">
+            <li><b>传产品</b>图片、链接或一句描述</li>
+            <li><b>说目标</b>人群、卖点、投放渠道</li>
+            <li><b>收成片</b>看首版，不满意直接改</li>
+          </ol>
+          <a class="btn btn--primary" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">生成第一条片 <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+
+      <div class="mode-card" data-panel="deep">
+        <div class="mode-card__media">
+          <img src="assets/img/scene-serum.webp" alt="深度共创示例画面" loading="lazy" />
+          <div class="mode-card__chip">Agent 全程可接管</div>
+        </div>
+        <div class="mode-card__body">
+          <h3>深度共创</h3>
+          <p>在无限画布上和 Agent 一起推创意：先聊清楚人群与信息，再确认脚本和分镜，方向对了才进入生产。</p>
+          <ol class="steps">
+            <li><b>聊清楚</b>人群、卖点、不要什么</li>
+            <li><b>定方向</b>脚本、口播、分镜逐条过</li>
+            <li><b>再开拍</b>确认后批量生成与替换镜头</li>
+          </ol>
+          <a class="btn btn--primary" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">进入 Agent 模式 <span class="arrow" aria-hidden="true">↗</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 功能全景 ================= -->
+<section class="section" id="capability">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow reveal">功能全景 · 27 项</p>
+      <h2 class="reveal">使用手册里的每一项能力，<br class="only-pc"/>都在这里。</h2>
+      <p class="sec-head__lead reveal">从生成到再加工，从单条创意到批量流水线。以下清单与《智影用户手册 V3.0》逐条对应。</p>
+    </header>
+
+    <div class="filters reveal" role="tablist" aria-label="功能分类">
+      <button class="chip is-active" data-filter="all">全部 <small>27</small></button>
+      <button class="chip" data-filter="video">视频创作 <small>6</small></button>
+      <button class="chip" data-filter="image">图片与文本 <small>3</small></button>
+      <button class="chip" data-filter="agent">智能体 <small>5</small></button>
+      <button class="chip" data-filter="scene">场景玩法 <small>5</small></button>
+      <button class="chip" data-filter="tool">工具箱 <small>4</small></button>
+      <button class="chip" data-filter="biz">企业能力 <small>4</small></button>
+    </div>
+
+    <div class="cap-grid" id="capGrid">
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 6h11v12H4z"/><path d="M15 10l5-3v10l-5-3z"/></svg></div>
+        <h3>文生视频 / 图生视频</h3>
+        <p>一句提示词或一张商品图起片，5s / 10s 片段直出，支持参考图锁定主体一致性。</p>
+        <div class="cap__tags"><span>核心</span><span>Seedance 2.5</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 12h18M9 5v14M15 5v14"/></svg></div>
+        <h3>最长 5 分钟长视频</h3>
+        <p>多镜头连续生成，自动承接上下文、节奏与人物状态，适合产品讲解与剧情短片。</p>
+        <div class="cap__tags"><span>长片</span><span>多镜头</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 5h6v14H4zM14 5h6v14h-6z"/><path d="M10 12h4"/></svg></div>
+        <h3>首尾帧控制</h3>
+        <p>指定首帧与尾帧，让转场、运镜和变形过程按你的设想走，而不是靠运气。</p>
+        <div class="cap__tags"><span>精准控制</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 6h16M4 12h10M4 18h7"/><path d="M17 15l3 3-3 3"/></svg></div>
+        <h3>AI 视频编辑（分镜级）</h3>
+        <p>按分镜替换单个镜头，其余部分保留重算；改一句台词不用整条重做。</p>
+        <div class="cap__tags"><span>局部重算</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="7"/><rect x="14" y="4" width="7" height="7"/><rect x="3" y="15" width="7" height="7"/><path d="M14 18h7M17.5 14.5v7"/></svg></div>
+        <h3>抽帧裂变</h3>
+        <p>从成片抽出关键帧，逐帧再生成变体，一次产出十几条可做 A/B 的素材。</p>
+        <div class="cap__tags"><span>V3.0 新增</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="video">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 8h16M4 8l3-3M4 8l3 3"/><path d="M20 16H4M20 16l-3-3M20 16l-3 3"/></svg></div>
+        <h3>视频 / 音频格式转换</h3>
+        <p>竖版、横版、方版与不同编码一次转好，同一创意适配多个投放位。</p>
+        <div class="cap__tags"><span>V3.0 新增</span><span>多渠道</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="image">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-4 4 3 3-2 6 4"/></svg></div>
+        <h3>图片生成与编辑</h3>
+        <p>文生图、图片编辑双通道：商品图、社媒封面、海报草图，支持局部改图与尺寸延展。</p>
+        <div class="cap__tags"><span>文生图</span><span>局部重绘</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="image">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M5 5h14M5 10h14M5 15h9M5 20h6"/></svg></div>
+        <h3>文本生成</h3>
+        <p>脚本、卖点、口播稿、标题与话题，对话式产出并可直接改写语气与长度。</p>
+        <div class="cap__tags"><span>对话模型</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="image">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6"/><path d="M20 20l-4.5-4.5"/></svg></div>
+        <h3>素材理解对话</h3>
+        <p>把图片、视频丢进来直接问：为什么这条素材能跑，画面里能拆出几个卖点。</p>
+        <div class="cap__tags"><span>多模态</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="agent">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="5" y="7" width="14" height="12" rx="4"/><path d="M12 3v4M9 13h.01M15 13h.01"/></svg></div>
+        <h3>Agent 模式</h3>
+        <p>会追问缺失信息、会规划步骤、会自己往下做的创作智能体，人只在关键节点做决定。</p>
+        <div class="cap__tags"><span>核心</span><span>可接管</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="agent">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 18V6M4 18h16"/><circle cx="9" cy="14" r="2"/><circle cx="15" cy="9" r="2"/><path d="M9 14l6-5"/></svg></div>
+        <h3>无限画布</h3>
+        <p>素材、镜头与版本铺在同一张画布上，连线成时间线，非线性地反复试。</p>
+        <div class="cap__tags"><span>非线性创作</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="agent">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M12 4l2.2 5.2L20 11l-5.8 1.8L12 18l-2.2-5.2L4 11l5.8-1.8z"/></svg></div>
+        <h3>提示词导师</h3>
+        <p>把一句模糊的话扩写成结构化指令：主体、场景、光线、运镜、节奏，一次讲清。</p>
+        <div class="cap__tags"><span>可复用</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="agent">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M14 4l6 6-4 4-6-6z"/><path d="M8 10l6 6-6 4-4-2z"/></svg></div>
+        <h3>提示词反推</h3>
+        <p>选中一条跑得好的爆款素材，反推它的提示词结构，直接复用成自己的模板。</p>
+        <div class="cap__tags"><span>爆款解析</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="agent">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg></div>
+        <h3>定时运行</h3>
+        <p>设定时间与批量任务，7×24 无人值守排队出片，上班时素材已经在列表里。</p>
+        <div class="cap__tags"><span>自动化</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="scene">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="8" height="12" rx="1"/><rect x="13" y="6" width="8" height="12" rx="1"/></svg></div>
+        <h3>场景卡片</h3>
+        <p>前贴生成、卖点展示、商品特写、图生视频四类模板，选一个就能开工。</p>
+        <div class="cap__tags"><span>模板</span><span>零门槛</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="scene">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg></div>
+        <h3>爆款工厂</h3>
+        <p>拆解爆款的钩子、节奏与镜头语言，批量复制同款结构，快速铺量测试。</p>
+        <div class="cap__tags"><span>批量</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="scene">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="4"/><path d="M4 21c0-4 3.6-6 8-6s8 2 8 6"/></svg></div>
+        <h3>AI 数字人</h3>
+        <p>预设形象或上传自己的照片，多语言配音与口型同步，做口播、讲解、带货。</p>
+        <div class="cap__tags"><span>多语言</span><span>口型同步</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="scene">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 15l3-4 3 3 2-2 2 3"/></svg></div>
+        <h3>真人场景替换</h3>
+        <p>保留原有动作与节奏，把人物换到新场景里，同一套素材适配不同市场。</p>
+        <div class="cap__tags"><span>换场景</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="scene">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/></svg></div>
+        <h3>产品微动</h3>
+        <p>让静态商品图动起来——光影流转、缓慢推近，单镜头也能有质感。</p>
+        <div class="cap__tags"><span>图生视频</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="tool">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 16V8h9v8z"/><path d="M16 10l4-3v10l-4-3z"/><path d="M7 4v2M12 4v2"/></svg></div>
+        <h3>视频超分（画质增强）</h3>
+        <p>低清素材放大到高清甚至 4K，重建边缘与纹理，老素材也能重新投。</p>
+        <div class="cap__tags"><span>4K</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="tool">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 4.5-8 4.5-8-4.5z"/><path d="M4 12l8 4.5 8-4.5M4 16.5L12 21l8-4.5"/></svg></div>
+        <h3>图层拆分</h3>
+        <p>把成片拆成可编辑图层，文字、产品、背景分开改，不用回炉重生成。</p>
+        <div class="cap__tags"><span>可编辑</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="tool">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 14h10"/><path d="M9 9l-2 2 2 2"/></svg></div>
+        <h3>视频去字幕</h3>
+        <p>一键抹掉硬字幕与水印区域并补全背景，二次剪辑不再被原字幕卡住。</p>
+        <div class="cap__tags"><span>素材再加工</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="tool">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M12 3v10"/><circle cx="12" cy="16" r="5"/><path d="M8 7l4-4 4 4"/></svg></div>
+        <h3>豆包语音 / 声音克隆</h3>
+        <p>多音色配音覆盖中英与方言；也能克隆专属音色，让口播有品牌辨识度。</p>
+        <div class="cap__tags"><span>V3.0 新增</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="biz">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 20V9l8-5 8 5v11"/><path d="M9 20v-6h6v6"/></svg></div>
+        <h3>企业主账号</h3>
+        <p>人员、分组、积分分配与记录、创意历史、智能体配置、真人素材认证，总部统一管控。</p>
+        <div class="cap__tags"><span>10 个子模块</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="biz">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M8 6l-5 6 5 6M16 6l5 6-5 6"/><path d="M13 4l-2 16"/></svg></div>
+        <h3>开放平台 API</h3>
+        <p>把生成能力接进自有系统与投放工作流，任务下发、状态回传、素材直取。</p>
+        <div class="cap__tags"><span>API</span><span>可集成</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="biz">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><path d="M4 19h16"/><path d="M7 19V9M12 19V5M17 19v-6"/></svg></div>
+        <h3>运营分析与 BI</h3>
+        <p>任务量、消耗、活跃人数与渗透率按团队、人员、工具维度拆开看，周报直接引用。</p>
+        <div class="cap__tags"><span>数据看板</span></div>
+      </article>
+
+      <article class="cap reveal" data-cat="biz">
+        <div class="cap__icon"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M7 9h10M7 13h6"/><circle cx="17" cy="15" r="2"/></svg></div>
+        <h3>批量生成</h3>
+        <p>一个任务排队跑几百条，按模板变量替换产品与卖点，产出即带命名规则。</p>
+        <div class="cap__tags"><span>规模化</span></div>
+      </article>
+
+    </div>
+    <div class="cap-manual reveal">
+      <p class="cap-manual__label">对应《智影用户手册 V3.0》章节</p>
+      <ul>
+        <li><b>一</b>产品简介</li>
+        <li><b>二</b>功能清单</li>
+        <li><b>三</b>快速开始</li>
+        <li><b>四</b>核心功能详解</li>
+        <li><b>五</b>工具箱</li>
+      </ul>
+      <a href="https://donsontech.feishu.cn/wiki/EaeCw3CjPiTItgksBY4cmEAfnue" target="_blank" rel="noopener">打开手册 <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 创作流程 ================= -->
+<section class="section section--alt" id="flow">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow reveal">一条思路，四个动作</p>
+      <h2 class="reveal">看一个想法，怎么变成成片。</h2>
+      <p class="sec-head__lead reveal">以「通勤双肩包」为例：从一句需求，到可以投放的竖版短片。</p>
+    </header>
+
+    <div class="flow flow--steps">
+      <div class="flow__rail" aria-hidden="true"></div>
+
+      <article class="flow__step reveal">
+        <span class="flow__no">01</span>
+        <div class="flow__card">
+          <p class="flow__label">你的 brief</p>
+          <p class="flow__quote">「做一支 15 秒竖版英文视频，产品是通勤双肩包，人群是每天坐地铁上班的人，重点讲东西好找。」</p>
+        </div>
+      </article>
+
+      <article class="flow__step reveal">
+        <span class="flow__no">02</span>
+        <div class="flow__card flow__card--ai">
+          <p class="flow__label">Agent 追问</p>
+          <p class="flow__quote">「开场聚焦刷卡进站时翻包找卡，还是聚焦笔记本和随身物品分开收纳？」</p>
+        </div>
+      </article>
+
+      <article class="flow__step reveal">
+        <span class="flow__no">03</span>
+        <div class="flow__card">
+          <p class="flow__label">你定方向</p>
+          <p class="flow__quote">「讲早高峰找卡，节奏快一点，最后落在分层的收纳结构上。」</p>
+        </div>
+      </article>
+
+      <article class="flow__step reveal">
+        <span class="flow__no">04</span>
+        <div class="flow__card flow__card--story">
+          <p class="flow__label">分镜成形</p>
+          <div class="story">
+            <figure><img src="assets/img/scene-commuter.webp" alt="" loading="lazy"/><figcaption><b>钩子</b>闸机前翻包找卡</figcaption></figure>
+            <figure><img src="assets/img/scene-serum.webp" alt="" loading="lazy"/><figcaption><b>演示</b>分区打开，物品各归其位</figcaption></figure>
+            <figure><img src="assets/img/scene-avatar.webp" alt="" loading="lazy"/><figcaption><b>收尾</b>刷卡通过，产品与行动号召</figcaption></figure>
+          </div>
+          <p class="flow__note">确认后，Agent 生成画面、配音并完成剪辑；不满意的单镜可以只重做那一镜。</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 场景方案 ================= -->
+<section class="section" id="scenes">
+  <div class="wrap">
+    <header class="sec-head">
+      <p class="eyebrow reveal">场景卡片</p>
+      <h2 class="reveal">四种开场，覆盖大多数投放需求。</h2>
+      <p class="sec-head__lead reveal">不用从零想创意，选一张卡片，结构已经替你搭好。</p>
+    </header>
+
+    <div class="scene-grid">
+      <article class="scene reveal">
+        <div class="scene__media"><img src="assets/img/scene-commuter.webp" alt="前贴生成示例" loading="lazy"/><span class="scene__tag">前贴生成</span></div>
+        <h3>前贴生成</h3>
+        <p>3 秒抓人的开场，钩子先成立，再讲产品。适合信息流与开屏位。</p>
+      </article>
+      <article class="scene reveal">
+        <div class="scene__media"><img src="assets/img/scene-serum.webp" alt="卖点展示示例" loading="lazy"/><span class="scene__tag">卖点展示</span></div>
+        <h3>卖点展示</h3>
+        <p>一条讲透一个卖点，节奏统一，多条并行就能拼出完整卖点矩阵。</p>
+      </article>
+      <article class="scene reveal">
+        <div class="scene__media"><img src="assets/img/hero-product.webp" alt="商品特写示例" loading="lazy"/><span class="scene__tag">商品特写</span></div>
+        <h3>商品特写</h3>
+        <p>光影与材质优先，让产品自己说话，适合详情页首图与短视频封面。</p>
+      </article>
+      <article class="scene reveal">
+        <div class="scene__media"><img src="assets/img/scene-avatar.webp" alt="图生视频示例" loading="lazy"/><span class="scene__tag">图生视频</span></div>
+        <h3>图生视频</h3>
+        <p>一张静态图延展成镜头，加口播、加字幕，旧素材也能重新跑量。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 企业版 ================= -->
+<section class="section section--alt" id="enterprise">
+  <div class="wrap">
+    <div class="ent">
+      <div class="ent__copy">
+        <p class="eyebrow reveal">企业版</p>
+        <h2 class="reveal">从一个人的工具，<br/>到全公司的流水线。</h2>
+        <p class="sec-head__lead reveal">企业主账号把人员、积分、素材与数据收在一处；开放平台把生成能力接进已有系统。谁能用、用多少、产出什么，都有据可查。</p>
+
+        <ul class="ent__list reveal">
+          <li><b>人员与分组</b>按事业部、团队建组，权限与额度随组织走。</li>
+          <li><b>积分分配与记录</b>额度下发到组或人，消耗流水逐条可追溯。</li>
+          <li><b>统计分析</b>任务数、素材数、活跃人数、渗透率按团队拆解。</li>
+          <li><b>创意历史</b>全公司产出可检索、可复用，不随人走而流失。</li>
+          <li><b>智能体配置</b>统一品牌语气、禁用词与默认参数。</li>
+          <li><b>真人素材认证</b>人像授权留痕，商用合规可追溯。</li>
+          <li><b>开放平台</b>API 接入，任务下发与素材回传全自动。</li>
+        </ul>
+
+        <div class="hero__actions reveal">
+          <a class="btn btn--primary" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">申请企业演示 <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn btn--outline" href="https://donsontech.feishu.cn/wiki/EaeCw3CjPiTItgksBY4cmEAfnue" target="_blank" rel="noopener">查看用户手册</a>
+        </div>
+      </div>
+
+      <div class="ent__panel reveal">
+        <div class="code">
+          <div class="code__bar"><span class="dots"><i></i><i></i><i></i></span><span>POST /open/v1/video/tasks</span></div>
+          <pre><code>{
+  <span class="k">"model"</span>: <span class="s">"seedance-2.5"</span>,
+  <span class="k">"mode"</span>: <span class="s">"product_to_video"</span>,
+  <span class="k">"scene_card"</span>: <span class="s">"hook"</span>,
+  <span class="k">"duration"</span>: <span class="n">15</span>,
+  <span class="k">"ratio"</span>: <span class="s">"9:16"</span>,
+  <span class="k">"product"</span>: { <span class="k">"images"</span>: [<span class="s">"..."</span>] },
+  <span class="k">"brief"</span>: <span class="s">"通勤双肩包｜早高峰好找东西"</span>,
+  <span class="k">"auto_enhance"</span>: <span class="n">true</span>,
+  <span class="k">"callback"</span>: <span class="s">"https://your.app/webhook"</span>
+}</code></pre>
+        </div>
+        <div class="ent__stats">
+          <div><b>10</b><span>企业主子模块</span></div>
+          <div><b>API</b><span>全流程可集成</span></div>
+          <div><b>7×24</b><span>定时批量运行</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 数据 ================= -->
+<section class="section">
+  <div class="wrap">
+    <div class="metrics">
+      <div class="metric reveal"><b data-count="27">27</b><span>项创作能力，逐条对应手册</span></div>
+      <div class="metric reveal"><b data-count="5">5</b><span>分钟长视频，多镜头连续生成</span></div>
+      <div class="metric reveal"><b data-count="4">4</b><span>K 超分，低清素材可复用</span></div>
+      <div class="metric reveal"><b data-count="90">90</b><span>秒内出图，3 步完成首张</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 价格 ================= -->
+<section class="section section--alt" id="pricing">
+  <div class="wrap">
+    <header class="sec-head sec-head--center">
+      <p class="eyebrow reveal">成本</p>
+      <h2 class="reveal">先跑通，再放量。</h2>
+      <p class="sec-head__lead reveal">按积分计费，用多少算多少。视频生成低至 ¥0.2 / 秒，先用一个小产品验证方向，再决定铺多少量。</p>
+    </header>
+
+    <div class="plans">
+      <article class="plan reveal">
+        <h3>体验版</h3>
+        <p class="plan__price">免费<span>试用 7 天</span></p>
+        <p class="plan__desc">适合第一次接触，验证一句想法能不能出片。</p>
+        <ul>
+          <li>视频 / 图片 / 文本全通道</li>
+          <li>场景卡片与提示词导师</li>
+          <li>基础超分与去字幕</li>
+        </ul>
+        <a class="btn btn--outline btn--full" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">免费开始</a>
+      </article>
+
+      <article class="plan plan--hot reveal">
+        <span class="plan__flag">多数团队选这个</span>
+        <h3>团队版</h3>
+        <p class="plan__price">按积分<span>低至 ¥0.2 / 秒</span></p>
+        <p class="plan__desc">适合有固定投放预算的内容与投放团队。</p>
+        <ul>
+          <li>全部 27 项能力不限通道</li>
+          <li>抽帧裂变、爆款工厂、定时运行</li>
+          <li>无限画布与 Agent 模式</li>
+          <li>成员管理与积分分配</li>
+        </ul>
+        <a class="btn btn--primary btn--full" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">开通团队版</a>
+      </article>
+
+      <article class="plan reveal">
+        <h3>企业版</h3>
+        <p class="plan__price">定制<span>按组织规模报价</span></p>
+        <p class="plan__desc">适合多事业部、需要统一管控与系统集成的公司。</p>
+        <ul>
+          <li>企业主账号全部子模块</li>
+          <li>开放平台 API 与私有化对接</li>
+          <li>BI 运营分析与周报导出</li>
+          <li>专属交付与培训</li>
+        </ul>
+        <a class="btn btn--outline btn--full" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">联系商务</a>
+      </article>
+    </div>
+    <p class="plans__note reveal">价格与额度以开通页实际展示为准；企业版支持按季度评估后调整额度。</p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="section" id="faq">
+  <div class="wrap faq">
+    <div class="faq__head">
+      <p class="eyebrow reveal">开始之前</p>
+      <h2 class="reveal">常见问题</h2>
+      <p class="sec-head__lead reveal">还有别的问题？用户手册里有逐功能的分步说明与截图。</p>
+      <a class="btn btn--outline reveal" href="https://donsontech.feishu.cn/wiki/EaeCw3CjPiTItgksBY4cmEAfnue" target="_blank" rel="noopener">打开用户手册 <span class="arrow" aria-hidden="true">↗</span></a>
+    </div>
+
+    <div class="faq__list">
+      <details class="reveal" open>
+        <summary>我没有剪辑和提示词经验，能用吗？</summary>
+        <p>可以。场景卡片会按「前贴、卖点、特写、图生视频」四类结构向你提问，你只需要用日常语言回答产品、人群和卖点；提示词导师会把这些话扩写成结构化指令，Agent 接手后续生产。</p>
+      </details>
+      <details class="reveal">
+        <summary>一条视频大概多久、多少钱？</summary>
+        <p>极速成片通常在几分钟内给出首版。按积分计费，视频生成低至 ¥0.2 / 秒，15 秒短片成本可控；正式价格以开通页与实际用量为准。</p>
+      </details>
+      <details class="reveal">
+        <summary>生成的素材能商用吗？真人有授权要求吗？</summary>
+        <p>平台生成内容可用于商业投放。涉及真人形象时，企业版提供真人素材认证，人像授权留痕；使用数字人或肖像素材前请确保已获得被摄者授权。</p>
+      </details>
+      <details class="reveal">
+        <summary>已经有素材，只想做二次加工可以吗？</summary>
+        <p>可以。视频超分、视频去字幕、图层拆分、真人场景替换、音视频格式转换都属于素材再加工能力，导入后直接处理，不需要重新生成。</p>
+      </details>
+      <details class="reveal">
+        <summary>怎么和现有的投放或内容系统打通？</summary>
+        <p>企业版开放平台提供 API：任务下发、状态回传、素材直取，也支持 webhook 回调。配合定时运行，可以把「批量出片」变成流水线里的一个环节。</p>
+      </details>
+      <details class="reveal">
+        <summary>团队多人使用，额度和产出怎么管？</summary>
+        <p>企业主账号支持人员管理、人员分组、积分分配与积分记录，统计分析可按团队与人员查看任务量、素材量与消耗，创意历史全公司可检索复用。</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 底部 CTA ================= -->
+<section class="cta">
+  <div class="wrap cta__inner">
+    <img class="cta__bg" src="assets/img/hero-product.webp" alt="" loading="lazy" aria-hidden="true"/>
+    <div class="cta__content">
+      <h2 class="reveal">你的下一条爆款，<br/>从一个想法开始。</h2>
+      <p class="reveal">免费试用 7 天，先用一个小产品验证方向。</p>
+      <div class="hero__actions reveal">
+        <a class="btn btn--primary btn--lg" href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">免费开始创作 <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn--outline btn--lg" href="#capability">再逛一遍功能</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <a class="brand" href="#top">
+          <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6 23 16 5l10 18" fill="none" stroke="#35E3B4" stroke-width="2.6" stroke-linejoin="round"/>
+            <path d="M10.5 18.5h11" stroke="#EDF6F4" stroke-width="2.6" stroke-linecap="round"/>
+          </svg>
+          <span class="brand__name">智影<em>Insai InVision</em></span>
+        </a>
+        <p>一站式 AI 视频与内容生成平台<br/>深圳市东信时代信息技术有限公司</p>
+      </div>
+      <div class="footer__cols">
+        <div>
+          <h4>产品</h4>
+          <a href="#value">核心能力</a>
+          <a href="#capability">功能全景</a>
+          <a href="#scenes">场景方案</a>
+          <a href="#pricing">价格</a>
+        </div>
+        <div>
+          <h4>资源</h4>
+          <a href="https://donsontech.feishu.cn/wiki/EaeCw3CjPiTItgksBY4cmEAfnue" target="_blank" rel="noopener">用户手册</a>
+          <a href="#flow">创作流程</a>
+          <a href="#faq">常见问题</a>
+          <a href="#enterprise">开放平台</a>
+        </div>
+        <div>
+          <h4>开始</h4>
+          <a href="https://invision.yingsaidata.com/generate" target="_blank" rel="noopener">进入创作台</a>
+          <a href="https://invision.insai.cn/" target="_blank" rel="noopener">官网首页</a>
+          <a href="#enterprise">企业演示</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 智影 Insai InVision · 本站为产品展示页复刻版本，用于内部演示</p>
+      <p>Seedance 2.5 · 智影 V3.0</p>
+    </div>
+    <div class="footer__word" aria-hidden="true">智影 INSAI</div>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
