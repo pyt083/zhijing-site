@@ -1,8 +1,10 @@
-/* 智影 Insai InVision — 交互脚本 */
+/* 智影 Insai InVision — 交互脚本 v2 */
 (function () {
   'use strict';
 
-  /* ---------- 导航吸顶态 ---------- */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- 导航吸顶 ---------- */
   var nav = document.getElementById('nav');
   var onScroll = function () {
     if (window.scrollY > 12) nav.classList.add('is-stuck');
@@ -31,59 +33,67 @@
   var revealEls = document.querySelectorAll('.reveal');
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry, i) {
+      entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;
-        var el = entry.target;
-        var delay = Math.min(i * 60, 180);
-        setTimeout(function () { el.classList.add('is-in'); }, delay);
-        io.unobserve(el);
+        entry.target.classList.add('is-in');
+        io.unobserve(entry.target);
       });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.06 });
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- 两种协作模式切换 ---------- */
-  var tabs = document.querySelectorAll('.modes__tab');
-  var panels = document.querySelectorAll('.mode-card');
-  tabs.forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var key = tab.dataset.mode;
-      tabs.forEach(function (t) {
-        var on = t === tab;
-        t.classList.toggle('is-active', on);
-        t.setAttribute('aria-selected', String(on));
+  /* ---------- Hero 视差 ---------- */
+  var heroImg = document.querySelector('.hero__media img');
+  if (heroImg && !reduce) {
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(function () {
+        var y = Math.min(window.scrollY, 900);
+        heroImg.style.transform = 'scale(1.04) translate3d(0,' + (y * 0.14) + 'px,0)';
+        ticking = false;
       });
-      panels.forEach(function (p) {
-        p.classList.toggle('is-active', p.dataset.panel === key);
-      });
+    }, { passive: true });
+  }
+
+  /* ---------- 功能分类：点击定位 + 滚动联动 ---------- */
+  var capBtns = Array.prototype.slice.call(document.querySelectorAll('.cap__nav button'));
+  var groups = capBtns.map(function (b) { return document.getElementById(b.dataset.target); });
+
+  function setActive(idx) {
+    capBtns.forEach(function (b, i) { b.classList.toggle('is-active', i === idx); });
+  }
+
+  capBtns.forEach(function (btn, i) {
+    btn.addEventListener('click', function () {
+      var g = groups[i];
+      if (!g) return;
+      var top = g.getBoundingClientRect().top + window.scrollY - 110;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
+      setActive(i);
     });
   });
 
-  /* ---------- 功能筛选 ---------- */
-  var chips = document.querySelectorAll('.chip');
-  var caps = document.querySelectorAll('.cap');
-  chips.forEach(function (chip) {
-    chip.addEventListener('click', function () {
-      var key = chip.dataset.filter;
-      chips.forEach(function (c) { c.classList.toggle('is-active', c === chip); });
-      caps.forEach(function (card) {
-        var show = key === 'all' || card.dataset.cat === key;
-        card.classList.toggle('is-hidden', !show);
-        if (show) {
-          card.classList.add('is-in');
-        }
+  if ('IntersectionObserver' in window && groups.length) {
+    var spy = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        var idx = groups.indexOf(e.target);
+        if (idx > -1) setActive(idx);
       });
-    });
-  });
+    }, { rootMargin: '-25% 0px -60% 0px', threshold: 0 });
+    groups.forEach(function (g) { if (g) spy.observe(g); });
+  }
 
   /* ---------- 数字滚动 ---------- */
   var counters = document.querySelectorAll('.metric b[data-count]');
   var runCount = function (el) {
     var target = parseInt(el.dataset.count, 10);
     var start = performance.now();
-    var dur = 1100;
+    var dur = 1200;
     var step = function (now) {
       var p = Math.min((now - start) / dur, 1);
       var eased = 1 - Math.pow(1 - p, 3);
@@ -92,7 +102,7 @@
     };
     requestAnimationFrame(step);
   };
-  if ('IntersectionObserver' in window) {
+  if ('IntersectionObserver' in window && !reduce) {
     var cio = new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
         if (e.isIntersecting) { runCount(e.target); cio.unobserve(e.target); }
@@ -101,7 +111,7 @@
     counters.forEach(function (c) { cio.observe(c); });
   }
 
-  /* ---------- FAQ：手风琴（同时只展开一个） ---------- */
+  /* ---------- FAQ：同时只展开一个 ---------- */
   var faqs = document.querySelectorAll('.faq__list details');
   faqs.forEach(function (d) {
     d.addEventListener('toggle', function () {
@@ -110,7 +120,7 @@
     });
   });
 
-  /* ---------- 平滑锚点（补偿吸顶导航高度） ---------- */
+  /* ---------- 平滑锚点（补偿吸顶导航） ---------- */
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
@@ -118,8 +128,8 @@
       var target = document.querySelector(id);
       if (!target) return;
       e.preventDefault();
-      var top = target.getBoundingClientRect().top + window.scrollY - 76;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      var top = target.getBoundingClientRect().top + window.scrollY - 92;
+      window.scrollTo({ top: top, behavior: reduce ? 'auto' : 'smooth' });
     });
   });
 })();
