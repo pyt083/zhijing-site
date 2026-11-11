@@ -258,7 +258,7 @@ ul,ol{margin:0;padding:0;list-style:none;}
   animation:floaty 6s ease-in-out infinite;
 }
 .float--a{right:-26px;top:46%;}
-.float--b{left:-34px;bottom:6%;animation-delay:-3s;}
+.float--b{left:-30px;bottom:-22px;animation-delay:-3s;}
 @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-9px);}}
 
 .hero__logos{margin-top:clamp(52px,6vw,84px);display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding-bottom:8px;}
