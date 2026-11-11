@@ -20,11 +20,13 @@
     burger.addEventListener('click', function () {
       var open = mobile.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(open));
+      document.body.style.overflow = open ? 'hidden' : '';
     });
     mobile.querySelectorAll('a').forEach(function (a) {
       a.addEventListener('click', function () {
         mobile.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
       });
     });
   }
