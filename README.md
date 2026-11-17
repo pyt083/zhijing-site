@@ -1,4 +1,4 @@
-# 智影 Insai InVision — 官网复刻版
+# 智影 Insai InVision 
 
 一站式 AI 视频与内容生成平台的产品展示页，按《智影用户手册 V3.0》整理全部功能亮点。
 
